@@ -1,8 +1,8 @@
 <div id="top"></div>
 
-# Project name
+# @NFQ Next.Js Fonts
 
-[![EsLint](https://github.com/nfqde/nfq-npm-modules-template/actions/workflows/eslint.yml/badge.svg)](https://github.com/nfqde/nfq-npm-modules-template/actions/workflows/eslint.yml)
+[![EsLint](https://github.com/nfqde/nfq-next-fonts/actions/workflows/eslint.yml/badge.svg)](https://github.com/nfqde/nfq-next-fonts/actions/workflows/eslint.yml)
 
 ---
 
@@ -18,7 +18,7 @@
 
 ## Description: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Labore adipisicing nostrud nostrud consequat in excepteur ullamco veniam Lorem nostrud. Do laborum laboris nulla quis duis dolor est non pariatur irure esse occaecat. Id anim anim sint sunt nulla officia velit occaecat enim consectetur. Dolore occaecat ex ad occaecat consequat. Nulla anim nostrud excepteur nulla commodo dolor aute duis veniam culpa sit quis. Irure et irure enim cillum irure eiusmod nostrud exercitation esse ut minim.
+An small package that adds auto @font-face generation to your next.js project. It also adds the preview link tags to the head of the document.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -45,9 +45,9 @@ pnpm install <Project name>
    
 ### PeerDependencies:
 
-The following PeerDependencies are needed so the component does work:
+The following PeerDependencies are needed so the package does work:
 
-- \<dependency> >= \<version>
+- typescript >= 4.9.5
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
