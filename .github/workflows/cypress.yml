@@ -36,7 +36,7 @@ jobs:
         with:
           config-file: cypress.json
           browser: chrome
-          command: pnpm run test:cypress:ct:merge
+          command: pnpm run test
           install: false
           headless: true
       - name: Cypress report action

@@ -34,8 +34,8 @@
   "scripts": {
     "build": "rollup -c && pnpm tsc",
     "deploy": "standard-version && git push --follow-tags origin main && pnpm publish",
-    "lint": "pnpm eslint ./src --ext='.js, .jsx'",
-    "lint:report": "pnpm eslint --output-file eslint_report.json --format json --ext='.js, .jsx' ./src",
+    "lint": "pnpm eslint ./src --ext='.js, .jsx, .ts, .tsx'",
+    "lint:report": "pnpm eslint --output-file eslint_report.json --format json --ext='.js, .jsx, .ts, .tsx' ./src",
     "prepublishOnly": "pnpm run build",
     "test": "pnpm cross-env NODE_ENV=test pnpm cypress run-ct",
     "test:open": "pnpm cross-env NODE_ENV=test pnpm cypress open-ct"
