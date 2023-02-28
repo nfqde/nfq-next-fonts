@@ -28,3 +28,5 @@ rollup.config.mjs
 # package src
 pnpm-lock.yaml
 src
+
+.npmrc
