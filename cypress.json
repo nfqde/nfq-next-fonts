@@ -1,0 +1,14 @@
+{
+    "component": {
+        "componentFolder": "./cypress/components",
+        "testFiles": "**/*.spec.{js,jsx}"
+    },
+    "env": {
+        "NODE_ENV": "test"
+    },
+    "reporter": "cypress-mochawesome-reporter",
+    "reporterOptions": {
+        "saveJson": true
+    },
+    "videoUploadOnPasses": false
+}
