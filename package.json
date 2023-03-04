@@ -3,7 +3,11 @@
   "description": "Next.js plugin to load and preload fonts",
   "author": ".NFQ | Christoph Kruppe",
   "version": "1.0.0",
-  "keywords": ["Next.js", "fonts", "preload"],
+  "keywords": [
+    "Next.js",
+    "fonts",
+    "preload"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
