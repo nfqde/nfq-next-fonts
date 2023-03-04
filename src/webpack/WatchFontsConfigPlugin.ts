@@ -18,9 +18,10 @@ export class WatchFontsConfigPlugin {
             generator.generate();
         });
         compiler.hooks.watchRun.tap('WatchFontsConfigPlugin', compilation => {
-            // if (!compilation.modifiedFiles) {
-            //     return;
-            // }
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+            if (!compilation.modifiedFiles) {
+                return;
+            }
 
             const [changedFile] = Array.from(compilation.modifiedFiles);
 
