@@ -2,5 +2,21 @@
     "extends": [
         "@nfq"
     ],
-    "rules": {}
+    "ignorePatterns": [
+        "types",
+        "dist"
+    ],
+    "rules": {
+        "@nfq/no-magic-numbers": [
+            "error",
+            {
+                "detectObjects": false,
+                "enforceConst": true,
+                "ignore": [0, 1],
+                "ignoreArrayIndexes": true,
+                "ignoreArrays": true,
+                "ignoreFunctions": ["setTimeout", "setInterval", "eq"]
+            }
+        ]
+    }
 }

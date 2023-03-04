@@ -11,8 +11,11 @@ const globals = {};
 
 export default [
     {
-        external: [...Object.keys(pkg.peerDependencies || {})],
-        input: 'src/index.ts',
+        external: [...Object.keys({
+            ...pkg.peerDependencies,
+            ...pkg.externals
+        } || {})],
+        input: 'src/index.tsx',
         output: [
             {
                 exports: 'named',
@@ -38,7 +41,43 @@ export default [
             commonjs({include: ['node_modules/**']}),
             babel({
                 babelHelpers: 'bundled',
-                extensions: ['.js', '.jsx', '.json', '.ts', '.tsx']
+                extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+                targets: {browsers: pkg.browserslist}
+            })
+        ]
+    },
+    {
+        external: [...Object.keys({
+            ...pkg.peerDependencies,
+            ...pkg.externals
+        } || {})],
+        input: 'src/webpack/WatchFontsConfigPlugin.ts',
+        output: [
+            {
+                exports: 'named',
+                file: pkg.exports['./webpack'].require,
+                format: 'cjs',
+                globals,
+                name: pkg.name,
+                sourcemap: true
+            },
+            {
+                dir: './dist/esm/webpack/',
+                exports: 'named',
+                format: 'es',
+                globals,
+                name: pkg.name,
+                preserveModules: true,
+                sourcemap: true
+            }
+        ],
+        plugins: [
+            resolve({extensions: ['.js', '.jsx', '.json', '.ts', '.tsx']}),
+            commonjs({include: ['node_modules/**']}),
+            babel({
+                babelHelpers: 'bundled',
+                extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+                targets: {node: 'current'}
             })
         ]
     }

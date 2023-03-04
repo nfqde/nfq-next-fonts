@@ -1,44 +1,53 @@
 {
-  "name": "@nfq/npm-modules-template",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@nfq/next-fonts",
+  "description": "Next.js plugin to load and preload fonts",
   "author": ".NFQ | Christoph Kruppe",
-  "keywords": [],
+  "version": "1.0.0",
+  "keywords": ["Next.js", "fonts", "preload"],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nfqde/nfq-npm-modules-template/issues"
-  },
-  "homepage": "https://github.com/nfqde/nfq-npm-modules-template#readme",
-  "engines": {
-    "node": ">=14.0.0"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nfqde/nfq-npm-modules-template.git"
+    "url": "git+https://github.com/nfqde/nfq-next-fonts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nfqde/nfq-next-fonts/issues"
+  },
+  "homepage": "https://github.com/nfqde/nfq-next-fonts#readme",
+  "template": {
+    "version": "1.0.0",
+    "name": "nfq-npm-modules-template",
+    "path": "https://github.com/nfqde/nfq-next-fonts.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   },
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
       "require": "./dist/index.js"
+    },
+    "./webpack": {
+      "import": "./dist/esm/webpack/WatchFontsConfigPlugin.js",
+      "require": "./dist/webpack/WatchFontsConfigPlugin.js"
     }
   },
   "types": "types/index.d.ts",
-  "standard-version": {
-    "scripts": {
-      "prebump": "nfqBump"
-    }
-  },
   "sideEffects": [
     "cypress/**"
   ],
   "scripts": {
     "build": "rollup -c && pnpm tsc",
     "deploy": "standard-version && git push --follow-tags origin main && pnpm publish",
-    "lint": "pnpm eslint ./src --ext='.js, .jsx'",
-    "lint:report": "pnpm eslint --output-file eslint_report.json --format json --ext='.js, .jsx' ./src",
+    "lint": "pnpm eslint ./src --ext='.js, .jsx, .ts, .tsx'",
+    "lint:report": "pnpm eslint --output-file eslint_report.json --format json --ext='.js, .jsx, .ts, .tsx' ./src",
+    "merge:files": "pnpm mochawesome-merge \"./cypress/reports/mochawesome*.json\" > \"./cypress/reports/index.json\"",
     "prepublishOnly": "pnpm run build",
-    "test": "pnpm cross-env NODE_ENV=test pnpm cypress run-ct",
-    "test:open": "pnpm cross-env NODE_ENV=test pnpm cypress open-ct"
+    "test": "pnpm cross-env CYPRESS_INTERNAL_BROWSER_CONNECT_TIMEOUT=120000 pnpm cypress run --component && pnpm merge:files",
+    "test:open": "pnpm cross-env NODE_ENV=test pnpm cypress open --component"
+  },
+  "peerDependencies": {
+    "react": ">= 17",
+    "react-dom": ">= 17"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
@@ -54,12 +63,15 @@
     "@cypress/react": "^7.0.2",
     "@cypress/webpack-dev-server": "^3.3.0",
     "@lopatnov/rollup-plugin-uglify": "^2.1.5",
-    "@nfq/eslint-config": "^2.2.9",
+    "@nfq/eslint-config": "^2.2.11",
     "@nfq/eslint-plugin": "^0.6.0",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/cypress__code-coverage": "^3.10.0",
     "@types/node": "^18.14.2",
+    "@types/react": "^18.0.28",
+    "@types/webpack": "^5.28.0",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
     "babel-loader": "^9.1.2",
@@ -68,7 +80,6 @@
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
     "cypress": "^12.7.0",
-    "cypress-mochawesome-reporter": "^3.3.0",
     "eslint": "^8.35.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-array-func": "^3.1.8",
@@ -88,18 +99,30 @@
     "eslint-plugin-sort-destructure-keys": "^1.5.0",
     "html-webpack-plugin": "^5.5.0",
     "mocha": "^10.2.0",
-    "mochawesome": "^7.1.3",
+    "mochawesome": "^7.0.0",
+    "mochawesome-merge": "^4.2.2",
     "node-polyfill-webpack-plugin": "^2.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-is": "^18.2.0",
     "rollup": "^3.17.3",
     "rollup-plugin-cleaner": "^1.0.0",
-    "styled-components": "^5.3.6",
     "terser": "^5.16.5",
     "typescript": "^4.9.5",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "4.11.1"
-  }
+  },
+  "externals": {
+    "typescript": ">= 4.9.5"
+  },
+  "standard-version": {
+    "scripts": {
+      "prebump": "nfqBump"
+    }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
 }

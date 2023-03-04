@@ -17,7 +17,6 @@ babel.config.js
 .nyc_output
 coverage
 cypress
-webpack.cypress.config.js
 horusec-config.json
 
 # builds
@@ -28,3 +27,5 @@ rollup.config.mjs
 # package src
 pnpm-lock.yaml
 src
+
+.npmrc
