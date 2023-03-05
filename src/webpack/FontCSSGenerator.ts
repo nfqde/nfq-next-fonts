@@ -2,7 +2,7 @@ import fs from 'fs';
 
 import * as ts from 'typescript';
 
-import type {FontDefinition} from 'src';
+import type {FontDefinition, FontItem} from 'src';
 
 /**
  * The font css generator.
@@ -79,7 +79,7 @@ export class FontCSSGenerator {
 
         for (const [fontName, fontInfo] of Object
             // eslint-disable-next-line node/exports-style
-            .entries((exports as {fontDefinitions: FontDefinition}).fontDefinitions)
+            .entries((exports as {fontDefinitions: FontDefinition<Record<string, FontItem[]>>}).fontDefinitions)
         ) {
             for (const font of fontInfo) {
                 let fonts = [];

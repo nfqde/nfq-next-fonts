@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface FontItem {
+export interface FontItem {
     fontDisplay: 'auto' | 'block' | 'fallback' | 'optional' | 'swap';
     fontStyle: 'italic' | 'normal' | 'oblique' | `oblique ${number}deg ${number}deg` | `oblique ${number}deg`;
     fontWeight: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | 'bold' | 'normal';
