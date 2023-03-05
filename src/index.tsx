@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface FontItem {
+export interface FontItem {
     fontDisplay: 'auto' | 'block' | 'fallback' | 'optional' | 'swap';
     fontStyle: 'italic' | 'normal' | 'oblique' | `oblique ${number}deg ${number}deg` | `oblique ${number}deg`;
     fontWeight: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | 'bold' | 'normal';
@@ -8,7 +8,52 @@ interface FontItem {
     src: `/fonts/${string}.${string}`[] | `/fonts/${string}.${string}`;
 }
 
-export type FontDefinition = Record<string, FontItem[]>;
+export type FontDefinition<Type extends Record<string, FontItem[]>> = {
+    [Property in keyof Type]: FontItem[];
+};
+
+export type FontList<Type> = {
+    [Property in keyof Type]: `'${string}', Arial, sans-serif`;
+};
+
+/**
+ * Configuration Helper for fonts.
+ *
+ * @param config The font configuration.
+ * @returns The font configuration.
+ */
+export const configureFonts = <T extends FontDefinition<T>>(config: T): T => config;
+
+/**
+ * Gets the font theme.
+ *
+ * @param config The font configuration.
+ * @returns The font theme.
+ */
+export const getFontThemeList = <T extends FontDefinition<T>>(config: T): FontList<T> => Object.fromEntries(
+    Object.entries(config).map(([key]) => [key, `'${key}', Arial, sans-serif`])
+) as FontList<T>;
+
+/**
+ * Preloads fonts.
+ *
+ * @param fontDefinitions The font definitions.
+ * @returns An array of font links.
+ */
+export const preloadFonts = (fontDefinitions: FontDefinition<Record<string, FontItem[]>>) => Object
+    .values(fontDefinitions)
+    .filter(font => font.some(({preload}) => preload))
+    .map(font => font.filter(({preload}) => preload))
+    .flatMap(font => font.map(({src}) => (
+        <link
+            key={src as string}
+            as="font"
+            crossOrigin="anonymous"
+            href={src as string}
+            rel="preload"
+            type={getFontType(src as string)}
+        />
+    )));
 
 /**
  * Gets the font type.
@@ -39,24 +84,3 @@ const getFontType = (font: string): string => {
             throw new Error(`Unknown font type: ${ending!}`);
     }
 };
-
-/**
- * Preloads fonts.
- *
- * @param fontDefinitions The font definitions.
- * @returns An array of font links.
- */
-export const preloadFonts = (fontDefinitions: FontDefinition) => Object
-    .values(fontDefinitions)
-    .filter(font => font.some(({preload}) => preload))
-    .map(font => font.filter(({preload}) => preload))
-    .flatMap(font => font.map(({src}) => (
-        <link
-            key={src as string}
-            as="font"
-            crossOrigin="anonymous"
-            href={src as string}
-            rel="preload"
-            type={getFontType(src as string)}
-        />
-    )));
