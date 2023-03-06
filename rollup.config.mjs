@@ -51,7 +51,7 @@ export default [
             ...pkg.peerDependencies,
             ...pkg.externals
         } || {})],
-        input: 'src/webpack/WatchFontsConfigPlugin.ts',
+        input: 'src/webpack/index.ts',
         output: [
             {
                 exports: 'named',

@@ -1,0 +1,1 @@
+export {WatchFontsConfigPlugin} from './WatchFontsConfigPlugin';
