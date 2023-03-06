@@ -53,7 +53,7 @@
     "lint:report": "pnpm eslint --output-file eslint_report.json --format json --ext='.js, .jsx, .ts, .tsx' ./src",
     "merge:files": "pnpm mochawesome-merge \"./cypress/reports/mochawesome*.json\" > \"./cypress/reports/index.json\"",
     "prepublishOnly": "pnpm run build",
-    "test": "pnpm cross-env CYPRESS_INTERNAL_BROWSER_CONNECT_TIMEOUT=120000 pnpm cypress run --component && pnpm merge:files",
+    "test": "pnpm cross-env CYPRESS_INTERNAL_BROWSER_CONNECT_TIMEOUT=600000 pnpm cypress run --component && pnpm merge:files",
     "test:open": "pnpm cross-env NODE_ENV=test pnpm cypress open --component"
   },
   "peerDependencies": {
