@@ -31,11 +31,18 @@
       "require": "./dist/index.js"
     },
     "./webpack": {
-      "import": "./dist/esm/webpack/WatchFontsConfigPlugin.js",
-      "require": "./dist/webpack/WatchFontsConfigPlugin.js"
+      "import": "./dist/esm/webpack/index.js",
+      "require": "./dist/webpack/index.js"
     }
   },
-  "types": "types/index.d.ts",
+  "types": "./types/index.d.ts",
+  "typesVersions": {
+    "*": {
+        "webpack": [
+            "./types/webpack/index.d.ts"
+        ]
+    }
+  },
   "sideEffects": [
     "cypress/**"
   ],
