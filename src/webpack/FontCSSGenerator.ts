@@ -9,6 +9,13 @@ import type {FontDefinition, FontItem} from 'src';
  */
 export class FontCSSGenerator {
     /**
+     * Constructor.
+     *
+     * @param globalStylesPath The global styles path.
+     */
+    constructor(readonly globalStylesPath = './src/utils/globalStyles.ts') {}
+
+    /**
      * Get the url string.
      *
      * @param src The source.
@@ -64,8 +71,8 @@ export class FontCSSGenerator {
      * Generate the font css.
      */
     generate() {
-        // eslint-disable-next-line node/no-sync
-        const source = fs.readFileSync('./src/utils/globalStyles.ts', 'utf8');
+        // eslint-disable-next-line node/no-sync, security/detect-non-literal-fs-filename
+        const source = fs.readFileSync(this.globalStylesPath, 'utf8');
 
         // eslint-disable-next-line security/detect-eval-with-expression, no-eval
         eval(

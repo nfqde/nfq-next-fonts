@@ -2,7 +2,10 @@
 
 # @NFQ Next.Js Fonts
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/license/mit/)
 [![EsLint](https://github.com/nfqde/nfq-next-fonts/actions/workflows/eslint.yml/badge.svg)](https://github.com/nfqde/nfq-next-fonts/actions/workflows/eslint.yml)
+[![Horusec](https://github.com/nfqde/nfq-next-fonts/actions/workflows/horusec.yml/badge.svg)](https://github.com/nfqde/nfq-next-fonts/actions/workflows/horusec.yml)
+[![Cypress](https://github.com/nfqde/nfq-next-fonts/actions/workflows/cypress.yml/badge.svg)](https://github.com/nfqde/nfq-next-fonts/actions/workflows/cypress.yml)
 
 ---
 
