@@ -21,7 +21,7 @@ export class WatchFontsConfigPlugin {
      */
     apply(compiler: Compiler) {
         compiler.hooks.afterPlugins.tap('WatchFontsConfigPlugin', () => {
-            const generator = new FontCSSGenerator();
+            const generator = new FontCSSGenerator(this.options.globalStylesPath);
 
             generator.generate();
         });

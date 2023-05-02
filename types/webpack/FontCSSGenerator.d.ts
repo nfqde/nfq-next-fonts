@@ -2,6 +2,13 @@
  * The font css generator.
  */
 export declare class FontCSSGenerator {
+    readonly globalStylesPath: string;
+    /**
+     * Constructor.
+     *
+     * @param globalStylesPath The global styles path.
+     */
+    constructor(globalStylesPath?: string);
     /**
      * Get the url string.
      *
