@@ -2,7 +2,7 @@
   "name": "@nfq/next-fonts",
   "description": "Next.js plugin to load and preload fonts",
   "author": ".NFQ | Christoph Kruppe",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "keywords": [
     "Next.js",
     "fonts",
