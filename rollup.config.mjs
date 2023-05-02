@@ -11,10 +11,7 @@ const globals = {};
 
 export default [
     {
-        external: [...Object.keys({
-            ...pkg.peerDependencies,
-            ...pkg.externals
-        } || {})],
+        external: [...Object.keys({...pkg.peerDependencies} || {})],
         input: 'src/index.tsx',
         output: [
             {
@@ -22,6 +19,7 @@ export default [
                 file: pkg.exports['.'].require,
                 format: 'cjs',
                 globals,
+                interop: 'auto',
                 name: pkg.name,
                 sourcemap: true
             },

@@ -9,6 +9,14 @@ export class WatchFontsConfigPlugin {
     /**
      * Constructor.
      *
+     * @param options                  The options.
+     * @param options.globalStylesPath The global styles path.
+     */
+    constructor(readonly options: {globalStylesPath?: string}) {}
+
+    /**
+     * Constructor.
+     *
      * @param compiler The compiler.
      */
     apply(compiler: Compiler) {
@@ -30,7 +38,7 @@ export class WatchFontsConfigPlugin {
             }
 
             if (changedFile.includes('globalStyles')) {
-                const generator = new FontCSSGenerator();
+                const generator = new FontCSSGenerator(this.options.globalStylesPath);
 
                 generator.generate();
             }
