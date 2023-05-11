@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/nfqde/nfq-next-fonts/compare/v1.2.1...v1.3.0) (2023-05-11)
+
+
+### Features
+
+* **Webpack:** Add option for the css output path ([#9](https://github.com/nfqde/nfq-next-fonts/issues/9)) ([ecf87aa](https://github.com/nfqde/nfq-next-fonts/commit/ecf87aa0fe42bd8ff57aeed16efa9e96f0c46af3))
+
 ### [1.2.1](https://github.com/nfqde/nfq-next-fonts/compare/v1.2.0...v1.2.1) (2023-05-02)
 
 
