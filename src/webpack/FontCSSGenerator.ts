@@ -12,8 +12,12 @@ export class FontCSSGenerator {
      * Constructor.
      *
      * @param globalStylesPath The global styles path.
+     * @param outputPath       The css file output path.
      */
-    constructor(readonly globalStylesPath = './src/utils/globalStyles.ts') {}
+    constructor(
+        readonly globalStylesPath = './src/utils/globalStyles.ts',
+        readonly outputPath = './src/assets/fonts/fonts.css'
+    ) {}
 
     /**
      * Get the url string.
@@ -107,7 +111,7 @@ export class FontCSSGenerator {
             }
         }
 
-        // eslint-disable-next-line node/no-sync
-        fs.writeFileSync('./src/assets/fonts/fonts.css', css);
+        // eslint-disable-next-line node/no-sync, security/detect-non-literal-fs-filename
+        fs.writeFileSync(this.outputPath, css);
     }
 }
