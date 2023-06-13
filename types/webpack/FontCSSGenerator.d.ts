@@ -3,12 +3,14 @@
  */
 export declare class FontCSSGenerator {
     readonly globalStylesPath: string;
+    readonly outputPath: string;
     /**
      * Constructor.
      *
      * @param globalStylesPath The global styles path.
+     * @param outputPath       The css file output path.
      */
-    constructor(globalStylesPath?: string);
+    constructor(globalStylesPath?: string, outputPath?: string);
     /**
      * Get the url string.
      *

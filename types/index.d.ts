@@ -1,3 +1,4 @@
+import React from 'react';
 export interface FontItem {
     fontDisplay: 'auto' | 'block' | 'fallback' | 'optional' | 'swap';
     fontStyle: 'italic' | 'normal' | 'oblique' | `oblique ${number}deg ${number}deg` | `oblique ${number}deg`;
@@ -31,4 +32,4 @@ export declare const getFontThemeList: <T extends FontDefinition<T>>(config: T) 
  * @param fontDefinitions The font definitions.
  * @returns An array of font links.
  */
-export declare const preloadFonts: (fontDefinitions: FontDefinition<Record<string, FontItem[]>>) => JSX.Element[];
+export declare const preloadFonts: (fontDefinitions: FontDefinition<Record<string, FontItem[]>>) => React.JSX.Element[];
