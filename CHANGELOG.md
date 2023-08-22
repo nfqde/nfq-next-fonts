@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/nfqde/nfq-next-fonts/compare/v1.3.1...v1.3.2) (2023-08-22)
+
+
+### Bug Fixes
+
+* **Package:** Update packages ([#11](https://github.com/nfqde/nfq-next-fonts/issues/11)) ([6580cc8](https://github.com/nfqde/nfq-next-fonts/commit/6580cc88d1f23daa28d9faf1976d4f76ac66ec8a))
+
 ### [1.3.1](https://github.com/nfqde/nfq-next-fonts/compare/v1.3.0...v1.3.1) (2023-06-13)
 
 
