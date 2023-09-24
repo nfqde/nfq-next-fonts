@@ -49,7 +49,7 @@ interface Options {
  */
 export const preloadFonts = (
     fontDefinitions: FontDefinition<Record<string, FontItem[]>>,
-    {prefix = ''}: Options
+    {prefix = ''}: Options = {}
 ) => Object
     .values(fontDefinitions)
     .filter(font => font.some(({preload}) => preload))
