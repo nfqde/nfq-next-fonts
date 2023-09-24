@@ -34,13 +34,23 @@ export const getFontThemeList = <T extends FontDefinition<T>>(config: T): FontLi
     Object.entries(config).map(([key]) => [key, `'${key}', Arial, sans-serif`])
 ) as FontList<T>;
 
+interface Options {
+    prefix?: string;
+}
+
 /**
  * Preloads fonts.
  *
  * @param fontDefinitions The font definitions.
+ * @param options         The options.
+ * @param options.prefix  An optional font prefix for the url.
+ *
  * @returns An array of font links.
  */
-export const preloadFonts = (fontDefinitions: FontDefinition<Record<string, FontItem[]>>) => Object
+export const preloadFonts = (
+    fontDefinitions: FontDefinition<Record<string, FontItem[]>>,
+    {prefix = ''}: Options = {}
+) => Object
     .values(fontDefinitions)
     .filter(font => font.some(({preload}) => preload))
     .map(font => font.filter(({preload}) => preload))
@@ -49,7 +59,7 @@ export const preloadFonts = (fontDefinitions: FontDefinition<Record<string, Font
             key={src as string}
             as="font"
             crossOrigin="anonymous"
-            href={src as string}
+            href={`${prefix}${src as string}`}
             rel="preload"
             type={getFontType(src as string)}
         />
