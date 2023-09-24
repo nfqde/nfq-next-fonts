@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/nfqde/nfq-next-fonts/compare/v1.3.2...v1.4.0) (2023-09-24)
+
+
+### Features
+
+* **preloadFonts:** Add options. ([#12](https://github.com/nfqde/nfq-next-fonts/issues/12)) ([ac8770b](https://github.com/nfqde/nfq-next-fonts/commit/ac8770b34a433851b38f1643d78ebf7d80a86835))
+
 ### [1.3.2](https://github.com/nfqde/nfq-next-fonts/compare/v1.3.1...v1.3.2) (2023-08-22)
 
 
