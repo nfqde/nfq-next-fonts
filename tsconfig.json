@@ -19,7 +19,7 @@
         "declarationDir": "types",
         "declaration": true,
         "emitDeclarationOnly": true,
-        "target": "es5",
+        "target": "ESNext",
         "types": ["node", "cypress"]
     },
     "include": ["src/**/*.ts", "src/**/*.tsx"],

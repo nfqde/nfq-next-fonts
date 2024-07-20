@@ -26,10 +26,17 @@ export declare const configureFonts: <T extends FontDefinition<T>>(config: T) =>
  * @returns The font theme.
  */
 export declare const getFontThemeList: <T extends FontDefinition<T>>(config: T) => FontList<T>;
+interface Options {
+    prefix?: string;
+}
 /**
  * Preloads fonts.
  *
  * @param fontDefinitions The font definitions.
+ * @param options         The options.
+ * @param options.prefix  An optional font prefix for the url.
+ *
  * @returns An array of font links.
  */
-export declare const preloadFonts: (fontDefinitions: FontDefinition<Record<string, FontItem[]>>) => React.JSX.Element[];
+export declare const preloadFonts: (fontDefinitions: FontDefinition<Record<string, FontItem[]>>, { prefix }?: Options) => React.JSX.Element[];
+export {};
