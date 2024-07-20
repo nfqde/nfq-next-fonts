@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.2](https://github.com/nfqde/nfq-next-fonts/compare/v1.4.1...v1.4.2) (2024-07-20)
+
+
+### Bug Fixes
+
+* **Typescript:** fix typings for new module resolutions ([#17](https://github.com/nfqde/nfq-next-fonts/issues/17)) ([6c5a082](https://github.com/nfqde/nfq-next-fonts/commit/6c5a0822593ef6e556933eabf08f7ab6b2fb14b4))
+
 ### [1.4.1](https://github.com/nfqde/nfq-next-fonts/compare/v1.4.0...v1.4.1) (2024-06-21)
 
 
