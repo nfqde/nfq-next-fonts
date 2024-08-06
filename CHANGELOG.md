@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/nfqde/nfq-next-fonts/compare/v1.4.2...v1.5.0) (2024-08-06)
+
+
+### Features
+
+* **prefix:** Add prefix for css geneartion and activ enextjs base path ([#18](https://github.com/nfqde/nfq-next-fonts/issues/18)) ([3e04567](https://github.com/nfqde/nfq-next-fonts/commit/3e045676626cebfc0ce03a948d4715a50995f25a))
+
 ### [1.4.2](https://github.com/nfqde/nfq-next-fonts/compare/v1.4.1...v1.4.2) (2024-07-20)
 
 
