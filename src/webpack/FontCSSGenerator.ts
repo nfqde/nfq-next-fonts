@@ -13,10 +13,12 @@ export class FontCSSGenerator {
      *
      * @param globalStylesPath The global styles path.
      * @param outputPath       The css file output path.
+     * @param prefix           The font loading prefix path.
      */
     constructor(
         readonly globalStylesPath = './src/utils/globalStyles.ts',
-        readonly outputPath = './src/assets/fonts/fonts.css'
+        readonly outputPath = './src/assets/fonts/fonts.css',
+        readonly prefix = ''
     ) {}
 
     /**
@@ -31,20 +33,20 @@ export class FontCSSGenerator {
         switch (ending) {
             case 'otc':
             case 'ttc':
-                return `url('${src}') format('collection')`;
+                return `url('${this.prefix}${src}') format('collection')`;
             case 'svg':
             case 'svgz':
-                return `url('${src}') format('svg')`;
+                return `url('${this.prefix}${src}') format('svg')`;
             case 'eot':
-                return `url('${src}') format('embedded-opentype')`;
+                return `url('${this.prefix}${src}') format('embedded-opentype')`;
             case 'woff2':
-                return `url('${src}') format('woff2')`;
+                return `url('${this.prefix}${src}') format('woff2')`;
             case 'woff':
-                return `url('${src}') format('woff')`;
+                return `url('${this.prefix}${src}') format('woff')`;
             case 'ttf':
-                return `url('${src}') format('truetype')`;
+                return `url('${this.prefix}${src}') format('truetype')`;
             case 'otf':
-                return `url('${src}') format('opentype')`;
+                return `url('${this.prefix}${src}') format('opentype')`;
             default:
                 return '';
         }
