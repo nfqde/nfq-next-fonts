@@ -6,6 +6,7 @@ export declare class WatchFontsConfigPlugin {
     readonly options: {
         globalStylesPath?: string;
         outputPath?: string;
+        prefix?: string;
     };
     /**
      * Constructor.
@@ -13,10 +14,12 @@ export declare class WatchFontsConfigPlugin {
      * @param options                  The options.
      * @param options.globalStylesPath The global styles path.
      * @param options.outputPath       The css file output path.
+     * @param options.prefix           The font path prefix.
      */
     constructor(options: {
         globalStylesPath?: string;
         outputPath?: string;
+        prefix?: string;
     });
     /**
      * Constructor.
