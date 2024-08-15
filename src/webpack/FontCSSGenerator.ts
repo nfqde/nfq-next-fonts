@@ -77,23 +77,36 @@ export class FontCSSGenerator {
      * Generate the font css.
      */
     generate() {
-        // eslint-disable-next-line node/no-sync, security/detect-non-literal-fs-filename
-        const source = fs.readFileSync(this.globalStylesPath, 'utf8');
-
-        // eslint-disable-next-line security/detect-eval-with-expression, no-eval
-        eval(
-            ts.transpileModule(
-                source,
-                {compilerOptions: {moduleResolution: ts.ModuleResolutionKind.NodeNext}}
-            ).outputText
+        const program = ts.createProgram(
+            [this.globalStylesPath],
+            {compilerOptions: {moduleResolution: ['node']}}
         );
+        const source = program.getSourceFile(this.globalStylesPath);
+        const printer = ts.createPrinter({newLine: ts.NewLineKind.LineFeed});
+        let transpiledFonts = '{}';
+
+        ts.forEachChild(source!, node => {
+            if (ts.isVariableStatement(node)) {
+                if (
+                    node.modifiers?.[0]?.kind === ts.SyntaxKind.ExportKeyword
+                    && (node.declarationList.declarations[0].name as ts.Identifier).escapedText === 'fontDefinitions'
+                ) {
+                    const functionSource = printer.printNode(ts.EmitHint.Unspecified, node, source!)
+                        .replace('export const fontDefinitions = configureFonts(', 'const fontDefinitions = ')
+                        .replace('});', '};');
+
+                    transpiledFonts = ts.transpileModule(functionSource, {}).outputText
+                        .replace('var fontDefinitions = ', '');
+                }
+            }
+        });
+
+        // eslint-disable-next-line @typescript-eslint/no-implied-eval, no-new-func
+        const fontDefinitions: FontDefinition<Record<string, FontItem[]>> = new Function(`return ${transpiledFonts}`)();
 
         let css = '';
 
-        for (const [fontName, fontInfo] of Object
-            // eslint-disable-next-line node/exports-style
-            .entries((exports as {fontDefinitions: FontDefinition<Record<string, FontItem[]>>}).fontDefinitions)
-        ) {
+        for (const [fontName, fontInfo] of Object.entries(fontDefinitions)) {
             for (const font of fontInfo) {
                 let fonts = [];
 
