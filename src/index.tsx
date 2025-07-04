@@ -1,12 +1,22 @@
 import React from 'react';
 
-export interface FontItem {
+type FontWeights = '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
+
+export type FontItem<T extends boolean = false> = T extends false ? {
     fontDisplay: 'auto' | 'block' | 'fallback' | 'optional' | 'swap';
     fontStyle: 'italic' | 'normal' | 'oblique' | `oblique ${number}deg ${number}deg` | `oblique ${number}deg`;
     fontWeight: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | 'bold' | 'normal';
     preload?: boolean;
     src: `/fonts/${string}.${string}`[] | `/fonts/${string}.${string}`;
-}
+    variable: T;
+} : {
+    fontDisplay: 'auto' | 'block' | 'fallback' | 'optional' | 'swap';
+    fontStyle: 'italic' | 'normal' | 'oblique' | `oblique ${number}deg ${number}deg` | `oblique ${number}deg`;
+    fontWeight: `${FontWeights} ${FontWeights}`;
+    preload?: boolean;
+    src: `/fonts/${string}.${string}`[] | `/fonts/${string}.${string}`;
+    variable: T;
+};
 
 export type FontDefinition<Type extends Record<string, FontItem[]>> = {
     [Property in keyof Type]: FontItem[];
@@ -90,6 +100,7 @@ const getFontType = (font: string): string => {
             return 'font/ttf';
         case 'otf':
             return 'font/otf';
+        case undefined:
         default:
             throw new Error(`Unknown font type: ${ending!}`);
     }

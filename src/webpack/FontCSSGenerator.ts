@@ -47,6 +47,7 @@ export class FontCSSGenerator {
                 return `url('${this.prefix}${src}') format('truetype')`;
             case 'otf':
                 return `url('${this.prefix}${src}') format('opentype')`;
+            case undefined:
             default:
                 return '';
         }
@@ -101,7 +102,7 @@ export class FontCSSGenerator {
             }
         });
 
-        // eslint-disable-next-line @typescript-eslint/no-implied-eval, no-new-func
+        // eslint-disable-next-line @typescript-eslint/no-implied-eval, no-new-func, @typescript-eslint/no-unsafe-call
         const fontDefinitions: FontDefinition<Record<string, FontItem[]>> = new Function(`return ${transpiledFonts}`)();
 
         let css = '';
