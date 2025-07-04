@@ -49,6 +49,7 @@
   ],
   "scripts": {
     "build": "rollup -c && pnpm tsc",
+    "check:types": "pnpm tsc --noEmit",
     "deploy": "standard-version && git push --follow-tags origin main && pnpm publish",
     "lint": "pnpm eslint ./src --ext='.js' --ext='.jsx' --ext='.ts' --ext='.tsx'",
     "lint:report": "pnpm eslint --output-file eslint_report.json --format json --ext='.js, .jsx, .ts, .tsx' ./src",
