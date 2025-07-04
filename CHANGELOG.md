@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/nfqde/nfq-next-fonts/compare/v1.6.0...v1.7.0) (2025-07-04)
+
+
+### Features
+
+* **Variable:** Add variable font support ([#31](https://github.com/nfqde/nfq-next-fonts/issues/31)) ([62298e6](https://github.com/nfqde/nfq-next-fonts/commit/62298e6cd7973aadfcd84d4ac317d2f7635a8354))
+
 ## [1.6.0](https://github.com/nfqde/nfq-next-fonts/compare/v1.5.0...v1.6.0) (2024-08-15)
 
 
