@@ -97,7 +97,9 @@ export class FontCSSGenerator {
                         .replace('});', '};');
 
                     transpiledFonts = ts.transpileModule(functionSource, {}).outputText
-                        .replace('var fontDefinitions = ', '');
+                        .replace('"use strict";\n', '')
+                        .replace('var fontDefinitions = ', '')
+                        .replace('const fontDefinitions = ', '');
                 }
             }
         });
