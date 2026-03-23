@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.2](https://github.com/nfqde/nfq-next-fonts/compare/v1.7.1...v1.7.2) (2026-03-23)
+
+
+### Bug Fixes
+
+* **Webpack:** Adapt webpack plugin for new typescript transpiler version ([#35](https://github.com/nfqde/nfq-next-fonts/issues/35)) ([11037c3](https://github.com/nfqde/nfq-next-fonts/commit/11037c372f838cd6b58f7a339ce7337dde7c5155))
+
 ### [1.7.1](https://github.com/nfqde/nfq-next-fonts/compare/v1.7.0...v1.7.1) (2025-07-04)
 
 
